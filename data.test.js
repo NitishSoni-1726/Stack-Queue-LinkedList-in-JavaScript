@@ -1,6 +1,7 @@
 import { test, expect } from "vitest";
 import { Stack } from "./stack";
 import { Queue } from "./queue";
+import { LinkedList } from "./linklist";
 
 test("Stack Test", () => {
   const stack = new Stack();
@@ -28,4 +29,65 @@ test("Queue Test", () => {
   expect(queue.isEmpty()).toEqual(true);
 });
 
-test("Linked List Test");
+test("Linked List Test", () => {
+  const linkedList = new LinkedList(10);
+  expect(linkedList.display()).toEqual({
+    head: {
+      value: 10,
+      next: null,
+    },
+    tail: {
+      value: 10,
+      next: null,
+    },
+    nodes: 1,
+  });
+  linkedList.insert(12);
+  expect(linkedList.display()).toEqual({
+    head: {
+      value: 10,
+      next: {
+        value: 12,
+        next: null,
+      },
+    },
+    tail: { value: 12, next: null },
+    nodes: 2,
+  });
+  linkedList.insert(7, 0);
+  expect(linkedList.display()).toEqual({
+    head: {
+      value: 7,
+      next: {
+        value: 10,
+        next: {
+          value: 12,
+          next: null,
+        },
+      },
+    },
+    tail: { value: 12, next: null },
+    nodes: 3,
+  });
+  linkedList.delete();
+  expect(linkedList.display()).toEqual({
+    head: {
+      value: 7,
+      next: {
+        value: 10,
+        next: null,
+      },
+    },
+    tail: { value: 10, next: null },
+    nodes: 2,
+  });
+  linkedList.delete(0);
+  expect(linkedList.display()).toEqual({
+    head: {
+      value: 10,
+      next: null,
+    },
+    tail: { value: 10, next: null },
+    nodes: 1,
+  });
+});

@@ -74,10 +74,3 @@ export class LinkedList {
     return this;
   }
 }
-
-const linklist = new LinkedList(1);
-linklist.insert(2);
-linklist.insert(3);
-linklist.insert(4);
-linklist.delete(1);
-console.log(linklist.display());

@@ -2,6 +2,7 @@ import { test, expect } from "vitest";
 import { Stack } from "./stack";
 import { Queue } from "./queue";
 import { LinkedList } from "./linklist";
+import { reverse } from "./array";
 
 test("Stack Test", () => {
   const stack = new Stack();
@@ -90,4 +91,18 @@ test("Linked List Test", () => {
     tail: { value: 10, next: null },
     nodes: 1,
   });
+});
+
+test("Array Reverse", () => {
+  const array1 = [1, 2, 3, 4, 5];
+  const array2 = [1, 2, 3, 4];
+  const array3 = [1, 2];
+  const array4 = [1];
+  const array5 = [];
+
+  expect(reverse(array1)).toEqual([5, 4, 3, 2, 1]);
+  expect(reverse(array2)).toEqual([4, 3, 2, 1]);
+  expect(reverse(array3)).toEqual([2, 1]);
+  expect(reverse(array4)).toEqual([1]);
+  expect(reverse(array5)).toEqual([]);
 });
